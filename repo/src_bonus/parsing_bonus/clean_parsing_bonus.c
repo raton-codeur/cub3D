@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   clean_parsing.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hakgyver <hakgyver@student.42.fr>          +#+  +:+       +#+        */
+/*   By: qhauuy <qhauuy@student.42mulhouse.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:11:51 by hakgyver          #+#    #+#             */
-/*   Updated: 2025/01/09 10:03:14 by hakgyver         ###   ########.fr       */
+/*   Updated: 2024/12/19 11:42:38 by qhauuy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ static void	free_parsing(t_data *data)
 	data->floor_color_str = NULL;
 	free(data->ceil_color_str);
 	data->ceil_color_str = NULL;
+	free(data->maze_str);
+	data->maze_str = NULL;
 }
 
 static void	load_walls(t_data *data)
@@ -77,8 +79,13 @@ static void	load_walls(t_data *data)
 static	void	init_after_parsing(t_data *data)
 {
 	init_dir(data);
-	get_map_dimensions(data);
-	reverse_map(data);
+	if (data->maze_line != -1)
+		generate_maze(data);
+	else
+	{
+		get_map_dimensions(data);
+		reverse_map(data);
+	}
 	load_walls(data);
 }
 

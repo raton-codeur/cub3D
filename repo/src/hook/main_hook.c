@@ -6,7 +6,7 @@
 /*   By: hakgyver <hakgyver@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 13:55:26 by qhauuy            #+#    #+#             */
-/*   Updated: 2024/12/20 14:44:28 by hakgyver         ###   ########.fr       */
+/*   Updated: 2025/01/09 10:04:34 by hakgyver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,6 @@ void	main_hook(void *param)
 	erase_image(data->game);
 	check_movement_keys(data);
 	check_rotation_keys(data);
-	get_closest_door(data);
-	play_animation(data);
 	dda(data);
 	if (data->depth_config == 2)
 		draw_mini_map(data);

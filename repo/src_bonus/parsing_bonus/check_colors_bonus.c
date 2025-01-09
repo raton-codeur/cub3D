@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_bonus.c                                       :+:      :+:    :+:   */
+/*   check_colors.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hakgyver <hakgyver@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/16 17:58:26 by qhauuy            #+#    #+#             */
-/*   Updated: 2024/12/21 13:20:32 by hakgyver         ###   ########.fr       */
+/*   Created: 2024/11/18 14:04:15 by hakgyver          #+#    #+#             */
+/*   Updated: 2024/11/18 14:07:20 by hakgyver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parsing.h"
-#include "init_game.h"
-#include "hook.h"
 
-int	main(int argc, char **argv)
+void	check_color_string(t_data *data, char *color)
 {
-	t_data	data;
+	int	i;
+	int	count;
 
-	ft_bzero(&data, sizeof(t_data));
-	parsing(&data, argc, argv);
-	init_game(&data);
-	mlx_key_hook(data.mlx, key_hook, &data);
-	mlx_loop_hook(data.mlx, main_hook, &data);
-	mlx_mouse_hook(data.mlx, mouse_hook, &data);
-	mlx_cursor_hook(data.mlx, cursor_hook, &data);
-	mlx_loop(data.mlx);
-	free_all(&data);
-	return (0);
+	i = 0;
+	count = 0;
+	while (color[i])
+	{
+		if (color[i] == ',')
+			count++;
+		i++;
+	}
+	if (count != 2)
+		perror_exit("Invalid color", data);
 }
