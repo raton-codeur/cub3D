@@ -6,7 +6,7 @@
 /*   By: hakgyver <hakgyver@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 13:59:02 by qhauuy            #+#    #+#             */
-/*   Updated: 2025/01/09 10:14:29 by hakgyver         ###   ########.fr       */
+/*   Updated: 2025/01/09 10:14:04 by hakgyver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,6 +141,8 @@ uint32_t	get_color(t_data *data, uint32_t x, uint32_t y)
 		return (0x000000FF);
 	else if (data->map[x / data->box_size][y / data->box_size] == '1')
 		return (MAP_COLOR_WALL);
+	else if (data->map[x / data->box_size][y / data->box_size] == 'D')
+		return (MAP_COLOR_DOOR);
 	else
 		return (MAP_COLOR_BG);
 }

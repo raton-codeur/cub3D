@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qhauuy <qhauuy@student.42mulhouse.fr>      +#+  +:+       +#+        */
+/*   By: hakgyver <hakgyver@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 18:11:56 by qhauuy            #+#    #+#             */
-/*   Updated: 2024/12/18 17:07:16 by qhauuy           ###   ########.fr       */
+/*   Updated: 2025/01/09 10:10:52 by hakgyver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,3 @@ void	rotate_y(t_data *data, int step)
 	data->horizon += step;
 	data->background->instances[0].y = data->horizon - data->w_height;
 }
-
