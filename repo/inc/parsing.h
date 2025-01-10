@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qhauuy <qhauuy@student.42mulhouse.fr>      +#+  +:+       +#+        */
+/*   By: hakgyver <hakgyver@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 16:06:17 by qhauuy            #+#    #+#             */
-/*   Updated: 2024/12/19 11:13:12 by qhauuy           ###   ########.fr       */
+/*   Updated: 2025/01/10 10:22:44 by hakgyver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,5 +84,8 @@ void		print_map(t_data *data);
 
 /* split_parsing.c */
 char		**split_parsing(char const *s, char c, t_data *data);
+
+/* check_keys.c */
+bool		check_keys(char *line);
 
 #endif

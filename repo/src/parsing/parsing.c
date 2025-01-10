@@ -6,7 +6,7 @@
 /*   By: hakgyver <hakgyver@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 14:53:13 by jteste            #+#    #+#             */
-/*   Updated: 2025/01/09 10:01:24 by hakgyver         ###   ########.fr       */
+/*   Updated: 2025/01/10 09:25:26 by hakgyver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,14 +57,14 @@ void	parsing(t_data *data, int argc, char **argv)
 	if (argc != 2)
 		return (ft_putendl_fd("Error\nUsage: ./cub3D <map.cub>", 2), exit(1));
 	parsing_init(data);
-	data->path_map = ft_strdup(argv[1]);
+	data->path_map = ft_strdup(ft_strtrim(argv[1], " "));
 	if (data->path_map == NULL)
 		return (perror_exit("Malloc failed", data));
 	extension_checker(data);
 	load_cub_file(data);
 	extract_textures_and_colors(data);
 	extract_map(data);
-	check_map(data);
 	check_cub_order(data);
+	check_map(data);
 	clean_parsing(data);
 }
