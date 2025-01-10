@@ -6,7 +6,7 @@
 /*   By: hakgyver <hakgyver@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 13:52:24 by hakgyver          #+#    #+#             */
-/*   Updated: 2025/01/09 10:01:07 by hakgyver         ###   ########.fr       */
+/*   Updated: 2025/01/10 12:20:26 by hakgyver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,9 +93,9 @@ void	check_map_chars(t_data *data)
 	while (data->map[i])
 	{
 		j = 0;
+		j = skip_spaces(data->map[i], j, ft_strlen(data->map[i]));
 		while (data->map[i][j])
 		{
-			j = skip_spaces(data->map[i], j, ft_strlen(data->map[i]));
 			if (!is_char_in_set(data->map[i][j]))
 				return ((perror_exit("Invalid character in map", data)));
 			j++;
